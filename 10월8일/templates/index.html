@@ -121,8 +121,8 @@
             $("#list-post").append(tempHtml);
         }
         function increase(post, index) {
-            const dom = $('#upup-${index}`) += 1
-                post['lookup'] += 1
+           dom.val(post['lookup'] += 1);
+                // post['lookup'] += 1
         }
         function deleteArticle(idx) {
             $.ajax({
