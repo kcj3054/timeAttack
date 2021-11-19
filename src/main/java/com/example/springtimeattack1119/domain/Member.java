@@ -1,20 +1,22 @@
-package com.example.easyjava22.domain;
-
+package com.example.springtimeattack1119.domain;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
 @Data
 @Entity
-public class Story {
+public class Member {
 
     @Id
     @GeneratedValue
-    private Long id;
+    Long id;
 
-    private String content;
+    String title;
+    String content;
 
 }

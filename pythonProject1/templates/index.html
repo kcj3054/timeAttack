@@ -213,7 +213,6 @@
         }
 
 
-
         function deleteArticle(idx) {
             $.ajax({
                 type: "DELETE",
@@ -322,8 +321,8 @@
             let tempHtml = `<div class="modal-footer">
                 <textarea id="comment" class="form-control" rows="2">${body}</textarea>
             </div>`
-                     $("#modal-comment").append(tempHtml);
-                     console.log(tempHtml)
+            $("#modal-comment").append(tempHtml);
+            console.log(tempHtml)
             $.ajax({
                 type: "POST",
                 url: "/text_save",

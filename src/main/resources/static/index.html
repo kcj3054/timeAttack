@@ -1,7 +1,7 @@
-<!Doctype html>
-<html lang="ko" xmlns="http://www.w3.org/1999/html">
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,9 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
-    <title>내배캠 | 질문합시다2</title>
-
-    <!-- style -->
+    <title>내배캠 | 타임어택</title>
     <style type="text/css">
         * {
             font-family: "Stylish", sans-serif;
@@ -52,34 +50,62 @@
         }
     </style>
     <script>
+        function openClose() {
+            $('#post-box').show()
+        }
 
+        function postingArticle() {
+            $('#post-box').click(function(){
+                let sendData =  ~ .val();
+                $.ajax({
+                    type: 'post',
+                    url : "",
+                    data: sendData,//보내는 데이터,
+                    dataType://문자형식으로 받기 ,
+                        success: function(result){
+                            //작업이 성공적으로 발생했을 경우
+                        }
+                }
+            })
+        }
     </script>
-
 </head>
-
 <body>
 <div class="wrap">
     <div class="jumbotron">
-        <h1 class="display-4">Hello맨</h1>
-        <p class="lead">스프링기초</p>
+        <h1 class="display-4">질문합시다!!</h1>
         <hr class="my-4">
-        <p id="acticle">
-        <td th:text="${content}"></td>
-        <!-- <tr th:each="story : ${storys}">
-             <td th:text="${story.content}"></td>
-         </tr>-->
+        <p class="lead">
+            <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary">포스팅 박스 열기</button>
         </p>
     </div>
-    <form action="/board/write" method="post">
-
-        <div class="form-group">
-            <label for="content">짧은 글 저장</label>
-            <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+    <div id="post-box" class="form-post" style="display:none">
+        <div>
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input id="title" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="content">간단한 내용</label>
+                <textarea id="content" class="form-control" rows="2"></textarea>
+            </div>
+            <input id="content" class="form-control" placeholder="" hidden>
+            <button id="ariticleSave" type="button" class="btn btn-primary" onclick="postingArticle()">기사저장</button>
         </div>
-
-        <button type="submit" class="btn btn-primary">Primary</button>
-    </form>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">제목</th>
+            <th scope="col">댓글수</th>
+            <th scope="col">등록일자</th>
+        </tr>
+        </thead>
+        <tbody id="list-post">
+        </tbody>
+    </table>
 </div>
-</body>
 
+</body>
 </html>
