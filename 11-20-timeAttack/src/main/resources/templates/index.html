@@ -57,9 +57,11 @@
         }
         function  postingArticle() {
             $('#post-box').hide()
+            titleVal = $('#title').val()
+            // console.log(titleVal)
                 tmphtml = `<tr>
             <th scope="col">#</th>
-            <th scope="col">$('#title')</th>
+            <th scope="col">titleVal</th>
             <th scope="col">댓글수</th>
             <th scope="col">등록일자</th>
         </tr>`
